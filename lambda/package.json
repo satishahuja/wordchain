@@ -1,0 +1,30 @@
+{
+  "name": "wordchain",
+  "version": "1.0.0",
+  "description": "A word building game where you and Alexa will take turns saying a word which begins with the last letter of the previous word.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satishahuja/wordchain.git"
+  },
+  "keywords": [
+    "alexa",
+    "word",
+    "chain",
+    "first",
+    "letter",
+    "last",
+    "letter",
+    "game",
+    "skill"
+  ],
+  "author": "Timbre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/satishahuja/wordchain/issues"
+  },
+  "homepage": "https://github.com/satishahuja/wordchain#readme"
+}
