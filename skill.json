@@ -1,0 +1,134 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "word chain",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StartNewGameIntent",
+                    "slots": [
+                        {
+                            "name": "gametype",
+                            "type": "GameType",
+                            "samples": [
+                                "category {gametype}",
+                                "lets play {gametype}",
+                                "I want to play {gametype}",
+                                "I am interested in {gametype}",
+                                "{gametype}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "resume game",
+                        "lets play {gametype}",
+                        "I want to play a game of category {gametype}",
+                        "start a game",
+                        "Let's play a game"
+                    ]
+                },
+                {
+                    "name": "InputEntryIntent",
+                    "slots": [
+                        {
+                            "name": "Country",
+                            "type": "AMAZON.Region"
+                        },
+                        {
+                            "name": "City",
+                            "type": "AMAZON.City"
+                        }
+                    ],
+                    "samples": [
+                        "{City}",
+                        "{Country}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "GameType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Both",
+                                "synonyms": [
+                                    "Contries and Cities",
+                                    "Cities and Countries",
+                                    "Both Indian Cities and Countries",
+                                    "Both Countries and Cities",
+                                    "Both Cities and Countries",
+                                    "Both Countries and Indian Cities",
+                                    "Indian Cities and Countries",
+                                    "Countries and Indian Cities"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Indian Cities",
+                                "synonyms": [
+                                    "Cities"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Countries",
+                                "synonyms": [
+                                    "Country"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "StartNewGameIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "gametype",
+                            "type": "GameType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.144469469417.181448852517"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.144469469417.181448852517",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which Category would you want to play in, available categories are  Countries, Indian Cities or Both ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Are you interested in Countries, Indian Cities or Both ?"
+                    }
+                ]
+            }
+        ]
+    }
+}
