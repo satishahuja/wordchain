@@ -17,25 +17,12 @@
                 },
                 {
                     "name": "StartNewGameIntent",
-                    "slots": [
-                        {
-                            "name": "gametype",
-                            "type": "GameType",
-                            "samples": [
-                                "category {gametype}",
-                                "lets play {gametype}",
-                                "I want to play {gametype}",
-                                "I am interested in {gametype}",
-                                "{gametype}"
-                            ]
-                        }
-                    ],
+                    "slots": [],
                     "samples": [
-                        "resume game",
-                        "lets play {gametype}",
-                        "I want to play a game of category {gametype}",
-                        "start a game",
-                        "Let's play a game"
+                        "lets play",
+                        "I want to play a game of country names ",
+                        "start a game ",
+                        "Let's play a game on contry names"
                     ]
                 },
                 {
@@ -44,56 +31,14 @@
                         {
                             "name": "Country",
                             "type": "AMAZON.Region"
-                        },
-                        {
-                            "name": "City",
-                            "type": "AMAZON.City"
                         }
                     ],
                     "samples": [
-                        "{City}",
-                        "{Country}"
+                        "Country {Country}"
                     ]
                 }
             ],
-            "types": [
-                {
-                    "name": "GameType",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "Both",
-                                "synonyms": [
-                                    "Contries and Cities",
-                                    "Cities and Countries",
-                                    "Both Indian Cities and Countries",
-                                    "Both Countries and Cities",
-                                    "Both Cities and Countries",
-                                    "Both Countries and Indian Cities",
-                                    "Indian Cities and Countries",
-                                    "Countries and Indian Cities"
-                                ]
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Indian Cities",
-                                "synonyms": [
-                                    "Cities"
-                                ]
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Countries",
-                                "synonyms": [
-                                    "Country"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
+            "types": []
         },
         "dialog": {
             "intents": [
@@ -101,15 +46,21 @@
                     "name": "StartNewGameIntent",
                     "confirmationRequired": false,
                     "prompts": {},
+                    "slots": []
+                },
+                {
+                    "name": "InputEntryIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.590810489001"
+                    },
                     "slots": [
                         {
-                            "name": "gametype",
-                            "type": "GameType",
+                            "name": "Country",
+                            "type": "AMAZON.Region",
                             "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.144469469417.181448852517"
-                            }
+                            "elicitationRequired": false,
+                            "prompts": {}
                         }
                     ]
                 }
@@ -117,15 +68,11 @@
         },
         "prompts": [
             {
-                "id": "Elicit.Slot.144469469417.181448852517",
+                "id": "Confirm.Intent.590810489001",
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Which Category would you want to play in, available categories are  Countries, Indian Cities or Both ?"
-                    },
-                    {
-                        "type": "PlainText",
-                        "value": "Are you interested in Countries, Indian Cities or Both ?"
+                        "value": "I did not hear a country name. Can you please repeat the name starting with Country example Country India"
                     }
                 ]
             }
