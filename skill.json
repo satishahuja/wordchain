@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "word chain",
+            "invocationName": "my wordchain",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -30,15 +30,83 @@
                     "slots": [
                         {
                             "name": "Country",
-                            "type": "AMAZON.Region"
+                            "type": "AMAZON.SearchQuery"
                         }
                     ],
                     "samples": [
                         "Country {Country}"
                     ]
+                },
+                {
+                    "name": "SkipIntent",
+                    "slots": [],
+                    "samples": [
+                        "next country",
+                        "skip this country",
+                        "Next",
+                        "Skip",
+                        "Can you please skip"
+                    ]
+                },
+                {
+                    "name": "RepeatIntent",
+                    "slots": [],
+                    "samples": [
+                        "can you say that again",
+                        "I did not hear that",
+                        "repeat",
+                        "can you repeat",
+                        "Can you please repeat"
+                    ]
                 }
             ],
-            "types": []
+            "types": [
+                {
+                    "name": "AMAZON.SearchQuery",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Antigua and Barbuda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bosnia and Herzegovina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Anguilla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Angola"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Andorra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Albania"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Afghanistan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Oman"
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         "dialog": {
             "intents": [
@@ -57,7 +125,7 @@
                     "slots": [
                         {
                             "name": "Country",
-                            "type": "AMAZON.Region",
+                            "type": "AMAZON.SearchQuery",
                             "confirmationRequired": false,
                             "elicitationRequired": false,
                             "prompts": {}
